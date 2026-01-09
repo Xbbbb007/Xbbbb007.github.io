@@ -4,46 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Portfolio - Refined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="cursor"></div>
     <div class="bg-texture"></div>
 
-    <main class="container">
-        <div class="card" onclick="navigate('tools')">
-            <div class="card-inner">
-                <span class="card-id">01</span>
-                <div class="content">
-                    <h2>Tools<br><span>工具库</span></h2>
-                    <p>学习的时候用到的一些工具和资源</p>
-                </div>
-                <div class="card-arrow">→</div>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="index.html">Home</a>
+            <div class="nav-actions">
+                <button id="themeToggle" class="ghost-btn" aria-label="切换主题">🌙 Dark</button>
             </div>
-        </div>
+        </header>
 
-        <div class="card" onclick="navigate('notes')">
-            <div class="card-inner">
-                <span class="card-id">02</span>
-                <div class="content">
-                    <h2>Notes<br><span>学习笔记</span></h2>
-                    <p>学习过程中记录的想法和总结</p>
-                </div>
-                <div class="card-arrow">→</div>
-            </div>
-        </div>
+        <section class="hero" id="hero">
+            <span class="eyebrow">Portfolio</span>
+            <h1><span>Welcome</span> my website</h1>
+            <p>轻量、干净的个人空间，收纳工具、笔记与自我介绍，也欢迎留言交流。</p>
+        </section>
 
-        <div class="card" onclick="navigate('intro')">
-            <div class="card-inner">
-                <span class="card-id">03</span>
-                <div class="content">
-                    <h2>Intro<br><span>个人介绍</span></h2>
-                    <p>故事、使命，以及迄今为止的旅程。</p>
+        <main class="cards-grid">
+            <div class="card" onclick="navigate('tools')">
+                <div class="card-inner">
+                    <span class="card-id">01</span>
+                    <div class="content">
+                        <h2>Tools<br><span>灵感与效率</span></h2>
+                        <p>常用工具集与小脚本，随时取用，帮你少走弯路。</p>
+                    </div>
+                    <div class="card-arrow">→</div>
                 </div>
-                <div class="card-arrow">→</div>
             </div>
-        </div>
-    </main>
+
+            <div class="card" onclick="navigate('notes')">
+                <div class="card-inner">
+                    <span class="card-id">02</span>
+                    <div class="content">
+                        <h2>Notes<br><span>学习日志</span></h2>
+                        <p>拆解思路、实践记录与反思，让想法落地成长。</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="card" onclick="navigate('intro')">
+                <div class="card-inner">
+                    <span class="card-id">03</span>
+                    <div class="content">
+                        <h2>Intro<br><span>关于我</span></h2>
+                        <p>个人背景、兴趣与正在做的事，保持透明与分享。</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
