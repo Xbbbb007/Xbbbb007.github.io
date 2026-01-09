@@ -1,0 +1,133 @@
+:root {
+    --bg-color: #f0f0f0; /* 稍微加深一点背景，增加对比 */
+    --card-bg: #ffffff;
+    --accent: #111111;
+    --text-muted: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: none;
+}
+
+/* Background Texture (添加噪点纹理增加质感) */
+.bg-texture {
+    position: fixed;
+    inset: 0;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    perspective: 1200px;
+}
+
+/* Card Styling (卡片设计) */
+.card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    cursor: pointer;
+    /* 核心修改：使用多层深色阴影让卡片“浮”起来 */
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.02),
+        0 6px 6px rgba(0,0,0,0.03),
+        0 0 100px rgba(0,0,0,0.01);
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05); /* 淡淡的边框线 */
+}
+
+.card-inner {
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none; /* 让 JS 处理外层卡片的 3D */
+}
+
+/* Hover Effect (悬停效果) */
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.08),
+        0 10px 20px rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.15);
+}
+
+.card-id {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+}
+
+.card h2 {
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+.card h2 span {
+    display: block;
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-arrow {
+    font-size: 20px;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-arrow {
+    transform: translateX(10px);
+}
+
+/* Custom Cursor */
+.cursor {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    mix-blend-mode: difference; /* 颜色反转效果 */
+    transition: transform 0.2s ease;
+}
